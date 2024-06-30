@@ -1,0 +1,43 @@
+.container {
+  padding: 20px;
+  color: aliceblue;
+}
+
+.home {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.text-box {
+  margin-top: 0; /* This ensures there is no top space */
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+.profile-image {
+  width: 100%;
+  max-width: 550px; /* Adjust the max-width as needed */
+  height: 100%;
+  border-radius: 20%;
+  opacity: 0.4;
+}
+/* .cursor {
+  animation: blink 0.5s step-end infinite;
+}
+
+@keyframes blink {
+  from, to {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+} */
+ 
