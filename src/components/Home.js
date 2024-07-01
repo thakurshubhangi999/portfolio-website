@@ -35,10 +35,10 @@ const Home = () => {
             </Typography>
             <Typography>Welcome to my portfolio website! &#x1F60A;</Typography>
             <Typography>
-              I'm a professional System Engineer with expertise in responsive
+              I'm a professional Frontend Engineer with expertise in responsive
               web design and front-end development using HTML, CSS, and
               JavaScript. I specialize in creating visually appealing and
-              intuitive websites with Bootstrap5 and ReactJS.
+              intuitive websites with ReactJS and Reactjs UI framewrok.
             </Typography>
             <Typography>
               I'm passionate about bringing ideas to life on the web and take

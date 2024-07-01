@@ -1,3 +1,32 @@
+
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.custom-list-header {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding-left: 2rem;
+}
+
+.custom-list-header li {
+  margin-right: 20px;
+}
+
+.custom-list-header li a {
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s;
+}
+
+.custom-list-header li a:hover {
+  color: #f1c40f;
+}
+
 #menu {
     position: fixed;
     right: 1rem;

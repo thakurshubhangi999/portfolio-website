@@ -13,31 +13,11 @@ import {
   Typography,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+import CloseIcon from "@mui/icons-material/Close";
 import LaptopMacIcon from "@mui/icons-material/LaptopMac";
 import { styled } from "@mui/system";
 import "./Header.css";
 import profileImage from "../images/myImage.png";
-
-const Title = styled(Typography)(({ theme }) => ({
-  flexGrow: 1,
-}));
-
-const NavLinks = styled("div")(({ theme }) => ({
-  display: "flex",
-  justifyContent: "flex-end",
-  alignItems: "center",
-  flex: 1,
-}));
-
-const NavButton = styled(Button)(({ theme }) => ({
-  color: "white",
-  textTransform: "none",
-  marginLeft: theme.spacing(2),
-}));
-
-const DownloadButton = styled(Button)(({ theme }) => ({
-  marginLeft: theme.spacing(6),
-}));
 
 const Header = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -53,38 +33,68 @@ const Header = () => {
     <Box>
       <AppBar
         position="sticky"
-        style={{ backgroundColor: "rgba(15, 45, 99, 0)" }}
+        style={{ backgroundColor: "rgba(15, 45, 99, 0.8)" }}
       >
-        <Container>
-          <Toolbar>
-            <LaptopMacIcon />
-            <Title variant="h6" sx={{ color: "white" }}>
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            padding: "1rem",
+          }}
+        >
+            <LaptopMacIcon sx={{ marginRight: '10px' }} />
+            <Typography variant="h6" className="header-title">
               Shubhangi's Portfolio
-            </Title>
-            <NavLinks sx={{ display: { xs: "none", md: "flex" } }}>
-              <NavButton href="#home">Home</NavButton>
-              <NavButton href="#about">About</NavButton>
-              <NavButton href="#portfolio">Portfolio</NavButton>
-              <NavButton href="#qualification">Qualification</NavButton>
-              <NavButton href="#contact">Contact</NavButton>
-            </NavLinks>
-            <DownloadButton
-              variant="outlined"
-              href="/path/to/cv.pdf"
-              target="_blank"
-              sx={{ display: { xs: "none", md: "block" } }}
+            </Typography>
+          <Box
+            className="nav-links"
+            sx={{
+              display: { xs: "none", md: "flex" },
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <ul
+              className="custom-list-header"
+              style={{ listStyle: "none", margin: 0, paddingLeft: "2rem" }}
             >
-              Download CV
-            </DownloadButton>
-            <IconButton
-              id="menu"
-              onClick={handleDrawerToggle}
-              sx={{ display: { xs: "block", md: "none" }, color: "white" }}
-            >
-              <MenuIcon />
-            </IconButton>
-          </Toolbar>
-        </Container>
+              <li style={{ paddingRight: "2rem" }}>
+                <a href="#home">Home</a>
+              </li>
+              <li style={{ paddingRight: "2rem" }}>
+                <a href="#about">About</a>
+              </li>
+              <li style={{ paddingRight: "2rem" }}>
+                <a href="#portfolio">Portfolio</a>
+              </li>
+              <li style={{ paddingRight: "2rem" }}>
+                <a href="#qualification">Qualification</a>
+              </li>
+              <li style={{ paddingRight: "2rem" }}>
+                <a href="#contact">Contact</a>
+              </li>
+            </ul>
+          </Box>
+          <Button
+            variant="contained"
+            className="cv-button"
+            onClick={handleDownload}
+            sx={{
+              borderRadius: "1rem",
+              backgroundColor: "rgb(7 21 47 / 80%)",
+            }}
+          >
+            Download CV
+          </Button>
+          <IconButton
+            id="menu"
+            onClick={handleDrawerToggle}
+            sx={{ display: { xs: "flex", md: "none" } }}
+          >
+            <MenuIcon />
+          </IconButton>
+        </Box>
       </AppBar>
       <Drawer
         className="menu-section"
@@ -105,37 +115,43 @@ const Header = () => {
           onClick={handleDrawerToggle}
           onKeyDown={handleDrawerToggle}
         >
+          <IconButton
+            onClick={handleDrawerToggle}
+            sx={{ color: "white", alignSelf: "flex-end" }}
+          >
+            <CloseIcon />
+          </IconButton>
           <Box className="user">
             <img src={profileImage} alt="MenuProfile" className="user" />
             <Typography className="name">Thakur Shubhangi</Typography>
             <Typography className="post">Frontend Engineer</Typography>
           </Box>
-          <NavLinks>
+          <Box>
             <ul className="custom-list">
               <li>
-                <a href="#home">home</a>
+                <a href="#home">Home</a>
               </li>
               <li>
-                <a href="#about">about</a>
+                <a href="#about">About</a>
               </li>
               <li>
-                <a href="#qualification">qualification</a>
+                <a href="#qualification">Qualification</a>
               </li>
               <li>
-                <a href="#portfolio">portfolio</a>
+                <a href="#portfolio">Portfolio</a>
               </li>
               <li>
-                <a href="#contact">contact</a>
+                <a href="#contact">Contact</a>
               </li>
             </ul>
-          </NavLinks>
+          </Box>
           <Button
             variant="contained"
             className="cv-button"
             onClick={handleDownload}
-            sx={{    
+            sx={{
               borderRadius: "1rem",
-              backgroundColor: "#002b80"
+              backgroundColor: "#002b80",
             }}
           >
             Download CV
